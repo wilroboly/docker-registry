@@ -1,1 +1,0 @@
-Reference material for article: https://medium.com/p/31525bbb5f75
