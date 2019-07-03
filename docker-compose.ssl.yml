@@ -10,20 +10,20 @@ services:
   letsencrypt:
     image: m21lab/letsencrypt:1.0
     environment:
-      DOMAINS: 'YOUR_DOMAIN'
-      EMAIL: 'RECOVERYEMAIL@YOUR_DOMAIN'
+      DOMAINS: 'tribus.studio'
+      EMAIL: 'william@tribus.studio'
       OPTIONS: '--staging'
 
   registry:
     volumes_from:
       - letsencrypt:ro
     environment:
-      REGISTRY_HTTP_SECRET: "your-http-secret"
-      REGISTRY_HTTP_TLS_CERTIFICATE: /etc/letsencrypt/live/LETSENCRYPT_DOMAIN_ENV_VAR/fullchain.pem
-      REGISTRY_HTTP_TLS_KEY: /etc/letsencrypt/live/LETSENCRYPT_DOMAIN_ENV_VAR/privkey.pem
+      REGISTRY_HTTP_SECRET: "NUbGWYdD5wHQRLTJLyvzxCvVeJopzcTD"
+      REGISTRY_HTTP_TLS_CERTIFICATE: /etc/letsencrypt/live/tribus.studio/fullchain.pem
+      REGISTRY_HTTP_TLS_KEY: /etc/letsencrypt/live/tribus.studio/privkey.pem
 
   registry-ui:
     environment:
       FORCE_SSL: 'true'
-      ENV_REGISTRY_PROXY_FQDN: 'LETSENCRYPT_DOMAIN_ENV_VAR'
+      ENV_REGISTRY_PROXY_FQDN: 'tribus.studio'
       ENV_DOCKER_REGISTRY_USE_SSL: 1
